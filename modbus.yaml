@@ -1,0 +1,13 @@
+- name: modbus_heatpump
+  type: tcp
+  host: !secret heatpump_ip
+  port: 502
+  delay: 10
+  timeout: 20
+  sensors:
+    - name: heatpump_analog
+      data_type: int16 
+      address: 1
+      slave: 1
+      virtual_count: 100
+      scan_interval: 120
