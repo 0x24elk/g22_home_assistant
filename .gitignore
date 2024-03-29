@@ -1,0 +1,27 @@
+# Use an allowlist pattern as Home Assistant also stores
+# statistics and other operational data in the config tree.
+
+# Exclude everything by default.
+*
+
+# Maybe for later: re-include directories to disable
+# git's optimization to not even check for re-inclusions
+# once a directory has been excluded.
+# !*/
+
+!.gitignore
+
+# Include configuration and documentation files.
+!*.md
+!*.yaml
+
+# Exclude files known/designd to contain
+# secrets, IPs, devices specific to the local setup.
+ip_bans.yaml
+secrets.yaml
+known_devices.yaml
+
+# Exclude directories with data and/or secrets
+.storage
+.cloud
+.google.token
