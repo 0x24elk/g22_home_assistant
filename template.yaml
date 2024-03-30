@@ -1,112 +1,112 @@
 # Map the virtual sensors from |heatpump_*| to human-readable values
 - sensor:
   # 6.1 Main operational data
-  - name: heatpump_outside_temp
-    # Aussentemperatur Wärmepumpe
+  - unique_id: heatpump_outside_temp
+    name: Aussentemperatur Wärmepumpe
     device_class: temperature
     unit_of_measurement: °C
     state: >
       {{ int(states('sensor.heatpump_analog')) / 10 }}
     availability: >
       {{ has_value('sensor.heatpump_analog') }}
-  - name: heatpump_return_temp
-    # Rücklauftemperatur Wärmepumpe
+  - unique_id: heatpump_return_temp
+    name: Rücklauftemperatur Wärmepumpe
     device_class: temperature
     unit_of_measurement: °C
     state: >
       {{ int(states('sensor.heatpump_analog_1')) / 10 }}
     availability: >
       {{ has_value('sensor.heatpump_analog_1') }}
-  - name: heatpump_warm_water_temp
-    # Warmwassertemperatur Wärmepumpe
+  - unique_id: heatpump_warm_water_temp
+    name: Warmwassertemperatur Wärmepumpe
     device_class: temperature
     unit_of_measurement: °C
     state: >
       {{ int(states('sensor.heatpump_analog_2')) / 10 }}
     availability: >
       {{ has_value('sensor.heatpump_analog_2') }}
-  - name: heatpump_outgoing_temp
-    # Vorlauftemperatur Wärmepumpe
+  - unique_id: heatpump_outgoing_temp
+    name: Vorlauftemperatur Wärmepumpe
     device_class: temperature
     unit_of_measurement: °C
     state: >
       {{ int(states('sensor.heatpump_analog_4')) / 10 }}
     availability: >
       {{ has_value('sensor.heatpump_analog_4') }}
-  - name: heatpump_source_output_temp
-    # Wärmequellenaustritt Wärmepumpe
+  - unique_id: heatpump_source_output_temp
+    name: Wärmequellenaustritt Wärmepumpe
     device_class: temperature
     unit_of_measurement: °C
     state: >
       {{ int(states('sensor.heatpump_analog_6')) / 10 }}
     availability: >
       {{ has_value('sensor.heatpump_analog_6') }}
-  - name: heatpump_circuit_2_temp
-    # Temperatur 2. Heizkreis Wärmepumpe
+  - unique_id: heatpump_circuit_2_temp
+    name: Temperatur 2. Heizkreis Wärmepumpe
     device_class: temperature
     unit_of_measurement: °C
     state: >
       {{ int(states('sensor.heatpump_analog_8')) / 10 }}
     availability: >
       {{ has_value('sensor.heatpump_analog_8') }}
-  - name: heatpump_circuit_3_temp
-    # Temperatur 3. Heizkreis Wärmepumpe
+  - unique_id: heatpump_circuit_3_temp
+    name: Temperatur 3. Heizkreis Wärmepumpe
     device_class: temperature
     unit_of_measurement: °C
     state: >
       {{ int(states('sensor.heatpump_analog_9')) / 10 }}
     availability: >
       {{ has_value('sensor.heatpump_analog_9') }}
-  - name: heatpump_room_1_temp
-    # Raumtemperatur 1 Wärmepumpe
+  - unique_id: heatpump_room_1_temp
+    name: Raumtemperatur 1 Wärmepumpe
     device_class: temperature
     unit_of_measurement: °C
     state: >
       {{ int(states('sensor.heatpump_analog_10')) / 10 }}
     availability: >
       {{ has_value('sensor.heatpump_analog_10') }}
-  - name: heatpump_room_2_temp
-    # Raumtemperatur 2 Wärmepumpe
+  - unique_id: heatpump_room_2_temp
+    name: Raumtemperatur 2 Wärmepumpe
     device_class: temperature
     unit_of_measurement: °C
     state: >
       {{ int(states('sensor.heatpump_analog_11')) / 10 }}
     availability: >
       {{ has_value('sensor.heatpump_analog_11') }}
-  - name: heatpump_room_1_humidity
-    # Raumfeuchte 1 Wärmepumpe
+  - unique_id: heatpump_room_1_humidity
+    name: Raumfeuchte 1 Wärmepumpe
     device_class: humidity
     unit_of_measurement: "%"
     state: >
       {{ int(states('sensor.heatpump_analog_12')) / 10 }}
     availability: >
       {{ has_value('sensor.heatpump_analog_12') }}
-  - name: heatpump_room_2_humidity
-    # Raumfeuchte 2 Wärmepumpe
+  - unique_id: heatpump_room_2_humidity
+    name: Raumfeuchte 2 Wärmepumpe
     device_class: humidity
     unit_of_measurement: "%"
     state: >
       {{ int(states('sensor.heatpump_analog_13')) / 10 }}
     availability: >
       {{ has_value('sensor.heatpump_analog_13') }}
-  - name: heatpump_return_target_temp
-    # Rücklaufsolltemperatur Wärmepumpe
+  - unique_id: heatpump_return_target_temp
+    name: Rücklaufsolltemperatur Wärmepumpe
     device_class: temperature
     unit_of_measurement: °C
     state: >
       {{ int(states('sensor.heatpump_analog_52')) / 10 }}
     availability: >
       {{ has_value('sensor.heatpump_analog_52') }}
-  - name: heatpump_circuit_2_water_target_temp
-    # Solltemperatur 2. Heizkreis Wärmepumpe
+  - unique_id: heatpump_circuit_2_water_target_temp
+    name: Solltemperatur 2. Heizkreis Wärmepumpe
     device_class: temperature
     unit_of_measurement: °C
     state: >
       {{ int(states('sensor.heatpump_analog_53')) / 10 }}
     availability: >
       {{ has_value('sensor.heatpump_analog_53') }}
-  - name: heatpump_circuit_3_water_target_temp
-    # Solltemperatur 3. Heizkreis Wärmepumpe
+  - unique_id: heatpump_circuit_3_water_target_temp
+    name: Solltemperatur 3. Heizkreis Wärmepumpe
     device_class: temperature
     unit_of_measurement: °C
     state: >
@@ -114,24 +114,24 @@
     availability: >
       {{ has_value('sensor.heatpump_analog_54') }}
   # 6.1: Main operational data - cooling
-  - name: heatpump_cooling_outgoing_temp
-    # Passiv Kühlen Vorlauftemperatur Wärmepumpe
+  - unique_id: heatpump_cooling_outgoing_temp
+    name: Passiv Kühlen Vorlauftemperatur Wärmepumpe
     device_class: temperature
     unit_of_measurement: °C
     state: >
       {{ int(states('sensor.heatpump_analog_18')) / 10 }}
     availability: >
       {{ has_value('sensor.heatpump_analog_18') }}
-  - name: heatpump_cooling_incoming_temp
-    # Passiv Kühlen Rücklauftemperatur Wärmepumpe
+  - unique_id: heatpump_cooling_incoming_temp
+    name: Passiv Kühlen Rücklauftemperatur Wärmepumpe
     device_class: temperature
     unit_of_measurement: °C
     state: >
       {{ int(states('sensor.heatpump_analog_19')) / 10 }}
     availability: >
       {{ has_value('sensor.heatpump_analog_19') }}
-  - name: heatpump_cooling_incoming_secondary_temp
-    # Passiv/Aktiv Kühlen Rücklauftemperatur gem. Primärkreis Wärmepumpe
+  - unique_id: heatpump_cooling_incoming_secondary_temp
+    name: Passiv/Aktiv Kühlen Rücklauftemperatur gem. Primärkreis Wärmepumpe
     device_class: temperature
     unit_of_measurement: °C
     state: >
@@ -139,16 +139,16 @@
     availability: >
       {{ has_value('sensor.heatpump_analog_20') }}
   # 6.1: Main operational data - solar
-  - name: heatpump_solar_panel_sensor
-    # Kollektorfühler Wärmepumpe
+  - unique_id: heatpump_solar_panel_sensor
+    name: Kollektorfühler Wärmepumpe
     device_class: temperature
     unit_of_measurement: °C
     state: >
       {{ int(states('sensor.heatpump_analog_9')) / 10 }}
     availability: >
       {{ has_value('sensor.heatpump_analog_9') }}
-  - name: heatpump_solar_storage
-    # Solarspeicher Wärmepumpe
+  - unique_id: heatpump_solar_storage
+    name: Solarspeicher Wärmepumpe
     device_class: temperature
     unit_of_measurement: °C
     state: >
@@ -156,32 +156,32 @@
     availability: >
       {{ has_value('sensor.heatpump_analog_22') }}
   # 6.1: Main operational data - ventilation
-  - name: heatpump_vent_outdoor_air_temp
-    # Aussenlufttemperatur Wärmepumpe
+  - unique_id: heatpump_vent_outdoor_air_temp
+    name: Aussenlufttemperatur Wärmepumpe
     device_class: temperature
     unit_of_measurement: °C
     state: >
       {{ int(states('sensor.heatpump_analog_119')) / 10 }}
     availability: >
       {{ has_value('sensor.heatpump_analog_119') }}
-  - name: heatpump_vent_supply_air_temp
-    # Zulufttemperatur Wärmepumpe
+  - unique_id: heatpump_vent_supply_air_temp
+    name: Zulufttemperatur Wärmepumpe
     device_class: temperature
     unit_of_measurement: °C
     state: >
       {{ int(states('sensor.heatpump_analog_120')) / 10 }}
     availability: >
       {{ has_value('sensor.heatpump_analog_120') }}
-  - name: heatpump_vent_exit_air_temp
-    # Ablufttemperatur Wärmepumpe
+  - unique_id: heatpump_vent_exit_air_temp
+    name: Ablufttemperatur Wärmepumpe
     device_class: temperature
     unit_of_measurement: °C
     state: >
       {{ int(states('sensor.heatpump_analog_121')) / 10 }}
     availability: >
       {{ has_value('sensor.heatpump_analog_121') }}
-  - name: heatpump_vent_extraction_air_temp
-    # Fortlufttemperatur Wärmepumpe
+  - unique_id: heatpump_vent_extraction_air_temp
+    name: Fortlufttemperatur Wärmepumpe
     device_class: temperature
     unit_of_measurement: °C
     state: >
@@ -192,19 +192,19 @@
   # per request, so we can't get values for these unless we
   # start reading heatpump_analog in two requests.
   # 
-  # - name: heatpump_vent_supply_fan_rpm
+  # - unique_id: heatpump_vent_supply_fan_rpm
   #   # Drehzal Zuluftventilator Wärmepumpe
   #   device_class: speed
   #   unit_of_measurement: rpm
   #   state: >
   #     {{ int(states('sensor.heatpump_analog_124')) / 10 }}
-    # availability: >
-    #   {{ has_value('sensor.heatpump_analog_124') }}
-  # - name: heatpump_vent_exhaust_fan_rpm
+  #   availability: >
+  #     {{ has_value('sensor.heatpump_analog_124') }}
+  # - unique_id: heatpump_vent_exhaust_fan_rpm
   #   # Drehzahl Abluftventilator Wärmepumpe
   #   device_class: speed
   #   unit_of_measurement: rpm
   #   state: >
   #     {{ int(states('sensor.heatpump_analog_125')) / 10 }}
-    # availability: >
-    #   {{ has_value('sensor.heatpump_analog_125') }}
+  #   availability: >
+  #      {{ has_value('sensor.heatpump_analog_125') }}
