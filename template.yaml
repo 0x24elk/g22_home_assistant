@@ -58,13 +58,13 @@
   - name: heatpump_room_1_humidity
     friendly_name: "Raumfeuchte 1 Wärmepumpe"
     device_class: humidity
-    unit_of_measurement: %
+    unit_of_measurement: "%"
     state: >
       {{ int(states('sensor.heatpump_analog_12')) / 10 }}
   - name: heatpump_room_2_humidity
     friendly_name: "Raumfeuchte 2 Wärmepumpe"
     device_class: humidity
-    unit_of_measurement: %
+    unit_of_measurement: "%"
     state: >
       {{ int(states('sensor.heatpump_analog_13')) / 10 }}
   - name: heatpump_return_target_temp
