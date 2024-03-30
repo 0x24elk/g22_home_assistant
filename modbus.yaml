@@ -36,7 +36,7 @@
       data_type: int16 
       address: 1
       slave: 1
-      virtual_count: 120
+      virtual_count: 122
       # Poll every 2m; values don't change that frequently and we don't
       # want to overload the pCOWeb board.
       scan_interval: 120

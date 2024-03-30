@@ -142,15 +142,19 @@
     unit_of_measurement: °C
     state: >
       {{ int(states('sensor.heatpump_analog_122')) / 10 }}
-  - name: heatpump_vent_supply_fan_rpm
-    # Drehzal Zuluftventilator Wärmepumpe
-    device_class: speed
-    unit_of_measurement: rpm
-    state: >
-      {{ int(states('sensor.heatpump_analog_124')) / 10 }}
-  - name: heatpump_vent_exhaust_fan_rpm
-    # Drehzahl Abluftventilator Wärmepumpe
-    device_class: speed
-    unit_of_measurement: rpm
-    state: >
-      {{ int(states('sensor.heatpump_analog_125')) / 10 }}
+  # ModbusTCP / pymodbus only support reading up to 123 registers
+  # per request, so we can't get values for these unless we
+  # start reading heatpump_analog in two requests.
+  # 
+  # - name: heatpump_vent_supply_fan_rpm
+  #   # Drehzal Zuluftventilator Wärmepumpe
+  #   device_class: speed
+  #   unit_of_measurement: rpm
+  #   state: >
+  #     {{ int(states('sensor.heatpump_analog_124')) / 10 }}
+  # - name: heatpump_vent_exhaust_fan_rpm
+  #   # Drehzahl Abluftventilator Wärmepumpe
+  #   device_class: speed
+  #   unit_of_measurement: rpm
+  #   state: >
+  #     {{ int(states('sensor.heatpump_analog_125')) / 10 }}
