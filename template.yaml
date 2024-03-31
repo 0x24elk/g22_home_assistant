@@ -1,6 +1,8 @@
 # Map the virtual sensors from |heatpump_*| to human-readable values
 - sensor:
+  #
   # 6.1 Main operational data
+  #
   - unique_id: heatpump_outside_temp
     name: Aussentemperatur Wärmepumpe
     device_class: temperature
@@ -208,3 +210,71 @@
   #     {{ int(states('sensor.heatpump_analog_125')) / 10 }}
   #   availability: >
   #      {{ has_value('sensor.heatpump_analog_125') }}
+
+  #
+  # 6.2 History
+  #
+  - unique_id: heatpump_compressor_1_hours
+    name: Verdichter 1 Betriebsstunden Wärmepumpe
+    unit_of_measurement: h
+    state: >
+      {{ int(states('sensor.heatpump_analog_71')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_analog_71') }}
+  - unique_id: heatpump_compressor_2_hours
+    name: Verdichter 2 Betriebsstunden Wärmepumpe
+    unit_of_measurement: h
+    state: >
+      {{ int(states('sensor.heatpump_analog_72')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_analog_72') }}
+  - unique_id: heatpump_primary_pump_hours
+    name: Primärpumpe Betriebsstunden Wärmepumpe
+    unit_of_measurement: h
+    state: >
+      {{ int(states('sensor.heatpump_analog_73')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_analog_73') }}
+  - unique_id: heatpump_secondary_heater_hours
+    name: 2. Wärmeerzeuger Betriebsstunden Wärmepumpe
+    unit_of_measurement: h
+    state: >
+      {{ int(states('sensor.heatpump_analog_74')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_analog_74') }}
+  - unique_id: heatpump_heating_pump_hours
+    name: Heizungspumpe Betriebsstunden Wärmepumpe
+    unit_of_measurement: h
+    state: >
+      {{ int(states('sensor.heatpump_analog_75')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_analog_75') }}
+  - unique_id: heatpump_warm_water_pump_hours
+    name: Warmwasserpumpe Betriebsstunden Wärmepumpe
+    unit_of_measurement: h
+    state: >
+      {{ int(states('sensor.heatpump_analog_76')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_analog_76') }}
+  - unique_id: heatpump_immersion_heater_hours
+    name: Flanschheizung Betriebsstunden Wärmepumpe
+    unit_of_measurement: h
+    state: >
+      {{ int(states('sensor.heatpump_analog_77')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_analog_77') }}
+  - unique_id: heatpump_pool_pump_hours
+    name: Schwimmbadpumpe Betriebsstunden Wärmepumpe
+    unit_of_measurement: h
+    state: >
+      {{ int(states('sensor.heatpump_analog_78')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_analog_78') }}
+  - unique_id: heatpump_addl_circulation_pump_hours
+    name: Zusatzumwälzpumpe Betriebsstunden Wärmepumpe
+    unit_of_measurement: h
+    state: >
+      {{ int(states('sensor.heatpump_analog_70')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_analog_70') }}
+
