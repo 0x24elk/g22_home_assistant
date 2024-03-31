@@ -49,9 +49,9 @@
     # |heatpump_integer, heatpump_integer_1, heatpump_integer_2, ...|
     - name: heatpump_integer
       data_type: int16 
-      address: 5001
+      address: 5002
       slave: 1
-      virtual_count: 100
+      virtual_count: 122
       # Poll every 2m; values don't change that frequently and we don't
       # want to overload the pCOWeb board.
       scan_interval: 107
