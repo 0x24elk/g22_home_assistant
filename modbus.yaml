@@ -7,14 +7,18 @@
 #
 # The pCOWeb board offers "analog" (actually int16 holding registers
 # that need to be divided by 10...), "digital" (coils) and "integer"
-# values (int16 holding registers).
+# values (int16 holding registers starting at 5000). We'll call these
+# |heatpump_float|, |heatpump_integer| and |heatpump_coil|.
 # 
 # This configuration minimizes traffic by using the |virtual_count| feature,
 # creating a single "sensor" for each of the three types that requests _all_
-# the values in one pymodbus requuest each. And we then use |template.yaml| to
+# the values in one pymodbus request each. And we then use |template.yaml| to
 # map these to single sensors (and divide by 10). HA and pymodbus perform a
 # separate request per sensor, so adding hundreds of sensors here might
 # overwhelm the pCOWeb board.
+#
+# The scan_interval between each request is set to ~2m with different prime
+# values for each sensor type to avoid requests coinciding in time.
 - name: modbus_heatpump 
   type: tcp
   # IP Address of the pCOWeb board (from secrets.yaml)
@@ -31,12 +35,36 @@
     # by 10 after reading).
     #
     # The values are made available as
-    # |heatpump_analog, heatpump_analog_1, heatpump_analog_2, ...|
-    - name: heatpump_analog
+    # |heatpump_float, heatpump_float_1, heatpump_float_2, ...|
+    - name: heatpump_float
+      data_type: int16 
+      address: 1
+      slave: 1
+      virtual_count: 122
+      scan_interval: 101
+    # Use a single "sensor" with |virtual_count| to request
+    # all the "integer" registers from pCOWeb in a single round-trip.
+    #
+    # The values are made available as
+    # |heatpump_integer, heatpump_integer_1, heatpump_integer_2, ...|
+    - name: heatpump_integer
+      data_type: int16 
+      address: 5001
+      slave: 1
+      virtual_count: 122
+      # Poll every 2m; values don't change that frequently and we don't
+      # want to overload the pCOWeb board.
+      scan_interval: 107
+    # Use a single "sensor" with |virtual_count| to request
+    # all the "digital" coils from pCOWeb in a single round-trip.
+    #
+    # The values are made available as
+    # |heatpump_coil, heatpump_coil_1, heatpump_coil_2, ...|
+    - name: heatpump_coil
       data_type: int16 
       address: 1
       slave: 1
       virtual_count: 122
       # Poll every 2m; values don't change that frequently and we don't
       # want to overload the pCOWeb board.
-      scan_interval: 120
+      scan_interval: 113
