@@ -55,13 +55,14 @@
       # Poll every 2m; values don't change that frequently and we don't
       # want to overload the pCOWeb board.
       scan_interval: 107
+  binary_sensors:
     # Use a single "sensor" with |virtual_count| to request
     # all the "digital" coils from pCOWeb in a single round-trip.
     #
     # The values are made available as
     # |heatpump_coil, heatpump_coil_1, heatpump_coil_2, ...|
     - name: heatpump_coil
-      data_type: int16 
+      input_type: coil
       address: 1
       slave: 1
       virtual_count: 122
