@@ -513,3 +513,30 @@
       {{ int(states('sensor.heatpump_float_105')) }}
     availability: >
       {{ has_value('sensor.heatpump_float_105') }}
+
+  #
+  # 7.2 Smart Grid Ready
+  #
+  - unique_id: heatpump_smart_grid_status
+    name: Smart Grid Status Wärmepumpe
+    state: >
+      {{ {
+            ("off", "off"): "yellow",
+            ("off", "on"): "red",
+            ("on", "off"): "green",
+            ("on", "on"): "darkgreen"
+          }[(states('binary_sensor.heatpump_coil_3'), states('binary_sensor.heatpump_coil_4'))] }}
+    availability: >
+      {{ has_value('binary_sensor.heatpump_coil_3') and has_value('binary_sensor.heatpump_coil_4') }}
+  - unique_id: heatpump_smart_grid_mode
+    name: Smart Grid Modus Wärmepumpe
+    state: >
+     {
+            0: "off",
+            10: "yellow",
+            11: "green",
+            12: "red"
+            13: "darkgreen"
+          }[int(states('sensor.heatpump_integer_65')] }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_65') }}
