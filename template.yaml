@@ -278,3 +278,238 @@
     availability: >
       {{ has_value('sensor.heatpump_float_70') }}
 
+
+  #
+  # 6.3 Settings
+  #
+  - unique_id: heatpump_translation
+    name: Parallelverschiebung Wärmepumpe
+    state: >
+      {{ int(states('sensor.heatpump_integer_35')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_35') }}
+  - unique_id: heatpump_room_temp
+    name: Raumtemperatur Wärmepumpe
+    unit_of_measurement: °C
+    state: >
+      {{ int(states('sensor.heatpump_float_45')) / 10 }}
+    availability: >
+      {{ has_value('sensor.heatpump_float_45') }}
+  - unique_id: heatpump_fixed_target_temp
+    name: Festwertsolltemperatur Wärmepumpe
+    unit_of_measurement: °C
+    state: >
+      {{ int(states('sensor.heatpump_integer_36')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_36') }}
+  - unique_id: heatpump_heating_curve_endpoint
+    name: Heizkurvenendpunkt Wärmepumpe
+    unit_of_measurement: °C
+    state: >
+      {{ int(states('sensor.heatpump_integer_37')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_37') }}
+  - unique_id: heatpump_hysteresis
+    name: Hysterese Wärmepumpe
+    unit_of_measurement: K
+    state: >
+      {{ int(states('sensor.heatpump_float_46')) / 10 }}
+    availability: >
+      {{ has_value('sensor.heatpump_float_46') }}
+  - unique_id: heatpump_dynamic_cooling_target
+    name: Solltemperatur dyn. Kühlung Wärmepumpe
+    unit_of_measurement: °C
+    state: >
+      {{ int(states('sensor.heatpump_integer_42')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_42') }}
+  # From firmware L22.9
+  # Value is out of range of what we read in modbus.yaml
+  #
+  # - unique_id: heatpump_dynamic_cooling_target_hot
+  #   name: Solltemperatur dyn. Kühlung ab 35°C Wärmepumpe
+  #   unit_of_measurement: h
+  #   state: >
+  #     {{ int(states('sensor.heatpump_integer_133')) }}
+  #   availability: >
+  #     {{ has_value('sensor.heatpump_integer_133') }}
+
+  # 6.3.2 2nd & 3rd auxiliary circuits
+  - unique_id: heatpump_aux_select
+    name: Auswahl Heizkreis 2/3 Wärmepumpe
+    state: >
+      {{ int(states('sensor.heatpump_integer_81')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_81') }}
+  - unique_id: heatpump_aux_heating_curve_endpoint
+    name: Heizkurvenendpunkt 2/3. Kreis Wärmepumpe
+    unit_of_measurement: °C
+    state: >
+      {{ int(states('sensor.heatpump_integer_83')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_83') }}
+  - unique_id: heatpump_aux_fixed_target_temp
+    name: Festwertsolltemperatur 2/3. Kreis Wärmepumpe
+    unit_of_measurement: °C
+    state: >
+      {{ int(states('sensor.heatpump_integer_84')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_84') }}
+  - unique_id: heatpump_aux_translation
+    name: Parallelverschiebung 2/3. Kreis Wärmepumpe
+    state: >
+      {{ int(states('sensor.heatpump_integer_85')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_85') }}
+  - unique_id: heatpump_aux_mixer_minutes
+    name: Mischerlaufzeit 2/3. Kreis Wärmepumpe
+    unit_of_measurement: min
+    state: >
+      {{ int(states('sensor.heatpump_integer_86')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_86') }}
+  - unique_id: heatpump_aux_mixer_hysteresis
+    name: Mischerhysterese 2/3. Kreis Wärmepumpe
+    unit_of_measurement: K
+    state: >
+      {{ int(states('sensor.heatpump_float_93')) / 10 }}
+    availability: >
+      {{ has_value('sensor.heatpump_float_93') }}
+  - unique_id: heatpump_aux_max_temp
+    name: Maximale Temperatur 2/3. Kreis Wärmepumpe
+    unit_of_measurement: K
+    state: >
+      {{ int(states('sensor.heatpump_integer_87')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_87') }}
+  - unique_id: heatpump_aux_cooling_target_temp
+    name: Raumsolltemperatur 2/3. Kreis Wärmepumpe
+    unit_of_measurement: °C
+    state: >
+      {{ int(states('sensor.heatpump_integer_88')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_88') }}
+  
+  # 6.3.3 Modes
+  - unique_id: heatpump_operating_mode
+    name: Betriebsmodus Wärmepumpe
+    state: >
+      {{ int(states('sensor.heatpump_integer_14')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_14') }}
+  - unique_id: heatpump_party_hours
+    name: Partystunden Wärmepumpe
+    unit_of_measurement: h
+    state: >
+      {{ int(states('sensor.heatpump_integer_15')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_15') }}
+  - unique_id: heatpump_vacation_days
+    name: Urlaubstage Wärmepumpe
+    unit_of_measurement: d
+    state: >
+      {{ int(states('sensor.heatpump_integer_16')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_16') }}
+
+  # 6.3.4 Warm water
+  - unique_id: heatpump_warm_water_hysteresis
+    name: Warmwasser Hysterese Wärmepumpe
+    unit_of_measurement: K
+    state: >
+      {{ int(states('sensor.heatpump_integer_44')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_44') }}
+  - unique_id: heatpump_warm_water_target_temp
+    name: Warmwasser Solltemperatur Wärmepumpe
+    unit_of_measurement: °C
+    state: >
+      {{ int(states('sensor.heatpump_integer_46')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_46') }}
+  # Value out of range (not read in modbus.yaml)
+  # - unique_id: heatpump_warm_water_target_temp_min
+  #   name: Warmwasser Solltemperatur Minimal Wärmepumpe
+  #   unit_of_measurement: °C
+  #   state: >
+  #     {{ int(states('sensor.heatpump_integer_144')) }}
+  #   availability: >
+  #     {{ has_value('sensor.heatpump_integer_144') }}
+  - unique_id: heatpump_warm_water_target_temp_max
+    name: Warmwasser Solltemperatur Maximum Wärmepumpe
+    unit_of_measurement: °C
+    state: >
+      {{ int(states('sensor.heatpump_integer_47')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_47') }}
+
+  # 6.3.5 Swimming pool
+  - unique_id: heatpump_pool_hysteresis
+    name: Swimmingpool Hysterese Wärmepumpe
+    unit_of_measurement: K
+    state: >
+      {{ int(states('sensor.heatpump_integer_48')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_48') }}
+  - unique_id: heatpump_pool_target_temp
+    name: Swimmingpool Solltemperatur Wärmepumpe
+    unit_of_measurement: °C
+    state: >
+      {{ int(states('sensor.heatpump_integer_50')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_50') }}
+
+  # 6.3.5 Secondary heater
+  - unique_id: heatpump_heater2_hysteresis
+    name: 2. Wärmeerzeuger Hysterese Wärmepumpe
+    unit_of_measurement: K
+    state: >
+      {{ int(states('sensor.heatpump_float_47')) / 10 }}
+    availability: >
+      {{ has_value('sensor.heatpump_float_48') }}
+  - unique_id: heatpump_heater2_threshold_temp
+    name: 2. Wärmeerzeuger Grenztemperatur parallel Wärmepumpe
+    unit_of_measurement: °C
+    state: >
+      {{ int(states('sensor.heatpump_integer_19')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_19') }}
+  - unique_id: heatpump_heater2_threshold_temp
+    name: 2. Wärmeerzeuger Mischerlaufzeit Wärmepumpe
+    unit_of_measurement: °C
+    state: >
+      {{ int(states('sensor.heatpump_integer_20')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_integer_20') }}
+
+  #
+  # 6.4 Time automation (omitted)
+  #
+
+  #
+  # 6.5 Status
+  #
+  - unique_id: heatpump_status
+    name: Status Wärmepumpe
+    state: >
+      {{ int(states('sensor.heatpump_float_102')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_float_102') }}
+  - unique_id: heatpump_lock
+    name: Sperre Wärmepumpe
+    state: >
+      {{ int(states('sensor.heatpump_float_103')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_float_103') }}
+  - unique_id: heatpump_error
+    name: Störmeldung Wärmepumpe
+    state: >
+      {{ int(states('sensor.heatpump_float_104')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_float_104') }}
+  - unique_id: heatpump_sensor_error
+    name: Störmeldung Sensorik Wärmepumpe
+    state: >
+      {{ int(states('sensor.heatpump_float_105')) }}
+    availability: >
+      {{ has_value('sensor.heatpump_float_105') }}
