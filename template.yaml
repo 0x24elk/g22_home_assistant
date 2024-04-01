@@ -474,7 +474,7 @@
       {{ int(states('sensor.heatpump_integer_18')) }}
     availability: >
       {{ has_value('sensor.heatpump_integer_18') }}
-  - unique_id: heatpump_heater2_threshold_temp
+  - unique_id: heatpump_heater2_mixer_hours
     name: 2. Wärmeerzeuger Mischerlaufzeit Wärmepumpe
     unit_of_measurement: °C
     state: >
@@ -537,6 +537,6 @@
             11: "green",
             12: "red"
             13: "darkgreen"
-          }[int(states('sensor.heatpump_integer_65')] }}
+          }[int(states('sensor.heatpump_integer_65'))] }}
     availability: >
       {{ has_value('sensor.heatpump_integer_65') }}
