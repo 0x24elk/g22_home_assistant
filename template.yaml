@@ -535,7 +535,7 @@
             0: "off",
             10: "yellow",
             11: "green",
-            12: "red"
+            12: "red",
             13: "darkgreen"
           }[int(states('sensor.heatpump_integer_65'))] }}
     availability: >
