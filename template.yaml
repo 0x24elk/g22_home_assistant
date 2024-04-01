@@ -531,7 +531,7 @@
   - unique_id: heatpump_smart_grid_mode
     name: Smart Grid Modus Wärmepumpe
     state: >
-     {
+      {{ {
             0: "off",
             10: "yellow",
             11: "green",
