@@ -4,24 +4,29 @@
 # Exclude everything by default.
 *
 
+# Explicitly exclude files known/designd to contain
+# secrets, IPs, devices specific to the local setup.
+ip_bans.yaml
+secrets.yaml
+known_devices.yaml
+
+# Explicitly exclude directories with data and/or secrets
+.storage
+.cloud
+.google.token
+
 # Maybe for later: re-include directories to disable
 # git's optimization to not even check for re-inclusions
 # once a directory has been excluded.
 # !*/
 
+# Include default git stuff.
 !.gitignore
 
 # Include configuration and documentation files.
 !*.md
 !*.yaml
 
-# Exclude files known/designd to contain
-# secrets, IPs, devices specific to the local setup.
-ip_bans.yaml
-secrets.yaml
-known_devices.yaml
-
-# Exclude directories with data and/or secrets
-.storage
-.cloud
-.google.token
+# Include custom_components (and all the files therein)
+!/custom_components/
+!/custom_components/**/*

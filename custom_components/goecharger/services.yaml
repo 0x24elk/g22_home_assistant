@@ -1,0 +1,24 @@
+set_max_current:
+  fields:
+    charger_name:
+      example: "charger1"
+    max_current:
+      example: "16"
+set_cable_lock_mode:
+  fields:
+    charger_name:
+      example: "charger1"
+    cable_lock_mode:
+      example: "0"
+set_absolute_max_current:
+  fields:
+    charger_name:
+      example: "charger1"
+    charger_absolute_max_current:
+      example: "16"
+set_charge_limit:
+  fields:
+    charger_name:
+      example: "charger1"
+    charge_limit:
+      example: "2.5"
