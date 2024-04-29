@@ -1,0 +1,5 @@
+# Configure https://github.com/cathiele/homeassistant-goecharger
+chargers:
+    - name: wallbox
+      # IP Address of the go-e charger (from secrets.yaml)
+      host: !secret wallbox_ip

@@ -18,3 +18,4 @@ scene: !include scenes.yaml
 knx: !include knx.yaml
 modbus: !include modbus.yaml
 template: !include template.yaml
+goecharger: !include goecharger.yaml
